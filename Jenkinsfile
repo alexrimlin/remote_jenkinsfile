@@ -8,8 +8,7 @@ pipeline {
         }
         stage ('second_stage') {
             steps {
-                echo "exiting with code 0"
-                exit 0
+                echo "continue"
             }
         }
         stage ('third_stage') {
