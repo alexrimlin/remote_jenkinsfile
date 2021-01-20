@@ -8,13 +8,13 @@ pipeline {
         }
         stage ('second_stage') {
             steps {
-                echo "exiting 2 with an error code"
-                exit 3
+                echo "exiting with code 0"
+                exit 0
             }
         }
         stage ('third_stage') {
             steps {
-                echo "probably unreachable stage"
+                echo "reachable?"
             }
         }
     }
