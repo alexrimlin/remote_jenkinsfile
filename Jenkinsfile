@@ -6,12 +6,7 @@ pipeline {
                 echo "executing echo 1"
             }
         }
-        stage ('second_stage') {
-            steps {
-                echo "continue"
-            }
-        }
-        stage ('third_stage') {
+        stage ('another_stage') {
             steps {
                 echo "reachable?"
             }
