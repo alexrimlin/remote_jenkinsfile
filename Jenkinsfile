@@ -16,5 +16,10 @@ pipeline {
                 echo "reachable?"
             }
         }
+        stage ('failed_stage') {
+            steps {
+                exit 0
+            }
+        }
     }
 }
