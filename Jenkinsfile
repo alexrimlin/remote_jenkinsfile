@@ -37,7 +37,7 @@ pipeline {
 
         stage ('Invoke_pipeline') {
             steps {
-                sh 'invoking pipeline'
+                sh 'echo invoking pipeline'
                 build job: 'seed_job', parameters: [
                     string(name: 'param1', value: "value1")
                 ]
