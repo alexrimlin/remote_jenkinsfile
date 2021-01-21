@@ -20,12 +20,12 @@
 // }
 pipeline {
     agent any
-    {
-        node {
-                label 'main'
-                customWorkspace 'refs/heads/master'
-              }
-    }
+    // {
+    //     node {
+    //             label 'main'
+    //             customWorkspace 'refs/heads/master'
+    //           }
+    // }
 
     stages 
     {
