@@ -43,7 +43,11 @@ pipeline {
                 ]
             }
         }
-
+        stage('Groovy') {
+            steps {
+                sh 'groovy test_job.groovy'
+            }
+        }
         stage('End') {
             steps {
                 sh 'ls'
