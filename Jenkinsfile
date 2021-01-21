@@ -19,13 +19,13 @@
 //     }
 // }
 pipeline {
-    agent
-    {
-        node {
-                label 'main'
-                customWorkspace "test_job.groovy"
-              }
-    }
+    agent any
+    // {
+    //     node {
+    //             label 'main'
+    //             customWorkspace "."
+    //           }
+    // }
 
     stages 
     {
@@ -37,8 +37,8 @@ pipeline {
 
         stage ('Invoke_pipeline') {
             steps {
-                build job: 'pipeline1', parameters: [
-                string(name: 'param1', value: "value1")
+                build job: 'seed_job', parameters: [
+                    string(name: 'param1', value: "value1")
                 ]
                 sh 'invoking pipeline'
             }
