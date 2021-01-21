@@ -35,14 +35,14 @@ pipeline {
             }
         }
 
-        stage ('Invoke_pipeline') {
-            steps {
-                build job: 'seed_job', parameters: [
-                    string(name: 'param1', value: "value1")
-                ]
-                sh 'invoking pipeline'
-            }
-        }
+        // stage ('Invoke_pipeline') {
+        //     steps {
+        //         build job: 'seed_job', parameters: [
+        //             string(name: 'param1', value: "value1")
+        //         ]
+        //         sh 'invoking pipeline'
+        //     }
+        // }
 
         stage('End') {
             steps {
