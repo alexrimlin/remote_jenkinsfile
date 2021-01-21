@@ -1,19 +1,52 @@
+// pipeline {
+//     agent any
+//     stages {
+//         stage ('first_stage') {
+//             steps {
+//                 echo "executing echo 1"
+//             }
+//         }
+//         stage ('another_stage') {
+//             steps {
+//                 echo "reachable?"
+//             }
+//         }
+//         stage ('failed_stage') {
+//             steps {
+//                 exit 0
+//             }
+//         }
+//     }
+// }
 pipeline {
-    agent any
-    stages {
-        stage ('first_stage') {
+    agent
+    {
+        node {
+                label 'master'
+                customWorkspace "test_job.groovy"
+              }
+    }
+
+    stages 
+    {
+        stage('Start') {
             steps {
-                echo "executing echo 1"
+                sh 'ls'
             }
         }
-        stage ('another_stage') {
+
+        stage ('Invoke_pipeline') {
             steps {
-                echo "reachable?"
+                build job: 'pipeline1', parameters: [
+                string(name: 'param1', value: "value1")
+                ]
+                sh 'invoking pipeline'
             }
         }
-        stage ('failed_stage') {
+
+        stage('End') {
             steps {
-                exit 0
+                sh 'ls'
             }
         }
     }
