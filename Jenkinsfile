@@ -22,7 +22,7 @@ pipeline {
     agent
     {
         node {
-                label 'master'
+                label 'main'
                 customWorkspace "test_job.groovy"
               }
     }
