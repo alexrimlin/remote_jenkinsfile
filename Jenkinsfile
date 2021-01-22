@@ -27,7 +27,7 @@
 //         }
 //     }
 // }
-def code
+// def code
 node(any) {
     stages {
         stage('Build') {
