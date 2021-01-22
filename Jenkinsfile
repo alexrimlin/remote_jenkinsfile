@@ -12,7 +12,7 @@ pipeline {
 
         stage ('load script') {
             steps {
-                code = load 'test_job.groovy'
+                def code = load 'test_job.groovy'
             }
         }
         stage('Groovy') {
