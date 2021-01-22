@@ -29,13 +29,21 @@
 // }
 def code
 node(any) {
-    stage('git clone') {
-        sh 'git clone https://github.com/camelCat/remote_jenkinsfile.git'
-    }   
-    stage('load') {
-        code = load 'test_job.groovy'
-    }
-    stage('execute') {
-        code.foo()
+    stages {
+        stage('Build') {
+            steps {
+            sh 'echo "This is my first step"'
+            }
+        }
+        stage('Test') {
+            steps
+            sh 'echo "This is my Test step"'
+            }
+        }
+        stage('Deploy') {
+            steps {
+            sh 'echo "This is my Deploy step"'
+            }
+        }
     }
 }
