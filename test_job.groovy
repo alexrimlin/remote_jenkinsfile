@@ -1,1 +1,3 @@
-println "Dis pie chart I ate it"
+def foo() {
+    println "Dis pie chart I ate it"
+}
