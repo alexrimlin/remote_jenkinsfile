@@ -29,15 +29,13 @@
 // }
 def code
 node(any) {
-    stages {
-        stage('git clone') {
-            sh 'git clone https://github.com/camelCat/remote_jenkinsfile.git'
-        }   
-        stage('load') {
-            code = load 'test_job.groovy'
-        }
-        stage('execute') {
-            code.foo()
-        }
+    stage('git clone') {
+        sh 'git clone https://github.com/camelCat/remote_jenkinsfile.git'
+    }   
+    stage('load') {
+        code = load 'test_job.groovy'
+    }
+    stage('execute') {
+        code.foo()
     }
 }
