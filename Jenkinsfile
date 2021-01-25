@@ -1,47 +1,28 @@
 
-// pipeline {
-//     agent any
+pipeline {
+    agent any
 
-//     stages 
-//     {
-//         stage('Start') {
-//             steps {
-//                 sh 'ls'
-//             }
-//         }
-
-//         stage ('load script') {
-//             steps {
-//                 def code = load 'test_job.groovy'
-//             }
-//         }
-//         stage('Groovy') {
-//             steps {
-//                 code.foo()
-//             }
-//         }
-//         stage('End') {
-//             steps {
-//                 sh 'ls'
-//             }
-//         }
-//     }
-// }
-// def code
-node(any) {
-    stages {
-        stage('Build') {
+    stages 
+    {
+        stage('Start') {
             steps {
-            sh 'echo "This is my first step"'
+                sh 'ls'
             }
         }
-        stage('Test') {
-            steps
-            sh 'echo "This is my Test step"'
-            }
-        stage('Deploy') {
+
+        stage ('load script') {
             steps {
-            sh 'echo "This is my Deploy step"'
+                def code = load 'test_job.groovy'
+            }
+        }
+        stage('Groovy') {
+            steps {
+                code.foo()
+            }
+        }
+        stage('End') {
+            steps {
+                sh 'ls'
             }
         }
     }
